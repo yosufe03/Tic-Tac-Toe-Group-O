@@ -18,6 +18,7 @@ public class TicTacToe {
     public void start() {
         while (!hasWinner()) {
             System.out.println("Current player: " + currentPlayer.getMarker());
+            board.print();
 
             int row = getInput("row (0-2): ");
             int col = getInput("column (0-2): ");
