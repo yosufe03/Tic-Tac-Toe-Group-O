@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class TicTacToe {
     private final Player player1;
     private final Player player2;
-    private Player currentPlayer;
-    private Board board;
+    protected Player currentPlayer;
+    protected Board board;
 
     public TicTacToe() {
         player1 = new Player('X');
@@ -31,7 +31,7 @@ public class TicTacToe {
         }
     }
 
-    private int getInput(String message) {
+    protected int getInput(String message) {
         int input;
         Scanner scanner = new Scanner(System.in);
         do {
@@ -41,18 +41,17 @@ public class TicTacToe {
         return input;
     }
 
-
-    private void switchCurrentPlayer() {
+    protected void switchCurrentPlayer() {
         currentPlayer = currentPlayer == player1 ? player2 : player1;
     }
 
-    private boolean hasWinner() {
+    protected boolean hasWinner() {
         char[][] cells = board.getCells();
 
         // Check rows and columns
         for (int i = 0; i < cells.length; i++) {
             if ( (cells[i][0] != ' ' && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) ||
-                    (cells[0][i] != ' ' && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]) ) {
+                 (cells[0][i] != ' ' && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i])){
                 return true;
             }
         }

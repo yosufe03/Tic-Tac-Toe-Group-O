@@ -19,7 +19,7 @@ public class Board {
     public boolean isFull() {
         for (char[] row : cells) {
             for (char marker : row) {
-                if (marker != ' ') {
+                if (marker == ' ') {
                     return false;
                 }
             }
