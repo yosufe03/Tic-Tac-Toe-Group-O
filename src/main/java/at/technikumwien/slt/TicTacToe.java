@@ -28,6 +28,7 @@ public class TicTacToe {
                 board.place(row, col, currentPlayer.getMarker());
 
                 if (hasWinner()) {
+                    board.print();
                     System.out.println("Player " + currentPlayer.getMarker() + " won!");
                     playing = false;
                 } else if (board.isFull()) {
