@@ -16,7 +16,8 @@ public class TicTacToe {
     }
 
     public void start() {
-        while (!hasWinner()) {
+        boolean playing = true;
+        while (playing) {
             System.out.println("Current player: " + currentPlayer.getMarker());
             board.print();
 
@@ -25,7 +26,17 @@ public class TicTacToe {
 
             if (board.isCellEmpty(row, col)) {
                 board.place(row, col, currentPlayer.getMarker());
-                switchCurrentPlayer();
+
+                if (hasWinner()) {
+                    System.out.println("Player " + currentPlayer.getMarker() + " won!");
+                    playing = false;
+                } else if (board.isFull()) {
+                    board.print();
+                    System.out.println("It's a tie!");
+                    playing = false;
+                } else {
+                    switchCurrentPlayer();
+                }
             } else {
                 System.out.println("Position is occupied, please try again");
             }
