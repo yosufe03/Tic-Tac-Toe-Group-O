@@ -41,6 +41,13 @@ public class TicTacToe {
                 System.out.println("Position is occupied, please try again");
             }
         }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Do you want to play again? (Y/N)");
+        String response = scanner.next();
+        if (response.equalsIgnoreCase("Y")) {
+            board.clear();
+            start();
+        }
     }
 
     protected int getInput(String message) {
