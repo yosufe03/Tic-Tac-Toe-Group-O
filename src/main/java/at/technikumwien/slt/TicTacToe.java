@@ -13,6 +13,7 @@ public class TicTacToe {
         player2 = new Player('O');
         currentPlayer = player1;
         board = new Board();
+
     }
 
     public void start() {
